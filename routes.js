@@ -9,8 +9,9 @@ router.get('/', function (req, res) {
     });
 });
 
-// Import user controller
+// Import controllers
 var userController = require('./controllers/usersController');
+var eventController = require('./controllers/eventController');
 
 // user routes
 router.route('/users')
@@ -21,6 +22,15 @@ router.route('/users/:user_id')
     .patch(userController.updateUser)
     .put(userController.updateUser)
     .delete(userController.deleteUser);
+// event routes
+router.route('/events')
+    .get(eventController.getAll)
+    .post(eventController.createNew);
+router.route('/events/:event_id')
+    .get(eventController.viewEvent)
+    .patch(eventController.updateEvent)
+    .put(eventController.updateEvent)
+    .delete(eventController.deleteEvent);
 
 // Export API routes
 module.exports = router;
