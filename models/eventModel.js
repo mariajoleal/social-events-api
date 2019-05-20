@@ -5,7 +5,7 @@ var eventSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    date: {
+    dateTime: {
         type: String,
         required: true
     },
@@ -13,15 +13,12 @@ var eventSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    time: {
-        type: String,
-        required: true
-    },
     createdBy: {
       type: String,
       required: true
     },
-    attending: Number
+    attending: Number,
+    image: String,  
 });
 
 // Export Event model

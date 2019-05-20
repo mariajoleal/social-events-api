@@ -20,11 +20,11 @@ exports.getAll = function (req, res) {
 exports.createNew = function (req, res) {
     var event = new Event();
     event.name = req.body.name ? req.body.name : event.name;
-    event.date = req.body.date;
+    event.dateTime = req.body.dateTime;
     event.place = req.body.place;
-    event.time = req.body.time;
     event.createdBy = req.body.createdBy;
     event.attending = req.body.attending;
+    event.image = req.body.image
 // save the event and check for errors
     event.save(function (err) {
         if (err)
@@ -53,12 +53,12 @@ Event.findById(req.params.event_id, function (err, event) {
         if (err)
             res.send(err);
         event.name = req.body.name ? req.body.name : event.name;
-        event.date = req.body.date ? req.body.date : event.date;
+        event.dateTime = req.body.dateTime ? req.body.dateTime : event.dateTime;
         event.place = req.body.place ? req.body.place : event.place;
-        event.time = req.body.time ? req.body.time : event.time;
         event.createdBy = req.body.createdBy ? req.body.createdBy : event.createdBy;
         event.attending = req.body.attending ? req.body.attending : event.attending;
-// save the event and check for errors
+        event.image = req.body.image ? req.body.image : event.image;
+        // save the event and check for errors
         event.save(function (err) {
             if (err)
                 res.json(err);
