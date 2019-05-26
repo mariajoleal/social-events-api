@@ -1,6 +1,6 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // Setup schema
-var eventSchema = mongoose.Schema({
+const eventSchema = mongoose.Schema({
     name: {
         type: String,
         required: true
@@ -22,7 +22,4 @@ var eventSchema = mongoose.Schema({
 });
 
 // Export Event model
-var Event = module.exports = mongoose.model('event', eventSchema);
-module.exports.get = function (callback, limit) {
-  Event.find(callback).limit(limit);
-}
+module.exports = User = mongoose.model("events", eventSchema);
