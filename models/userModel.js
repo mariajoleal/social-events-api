@@ -1,11 +1,7 @@
-var mongoose = require('mongoose');
+const mongoose = require('mongoose');
 // Setup schema
-var userSchema = mongoose.Schema({
+const userSchema = mongoose.Schema({
     name: {
-        type: String,
-        required: true
-    },
-    username: {
         type: String,
         required: true
     },
@@ -17,11 +13,10 @@ var userSchema = mongoose.Schema({
         type: String,
         required: true
     },
-    gender: String,
-    phone: String
+    date: {
+        type: Date,
+        default: Date.now
+    },
 });
 // Export User model
-var User = module.exports = mongoose.model('user', userSchema);
-module.exports.get = function (callback, limit) {
-  User.find(callback).limit(limit);
-}
+module.exports = User = mongoose.model("users", userSchema);
